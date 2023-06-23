@@ -1,0 +1,84 @@
+replicaCount: 1
+
+# -- If set, install and upgrade CRDs through helm chart.
+installCRDs: true
+
+resources: {}
+
+podAnnotations:
+  co.elastic.logs/enabled: "true"
+
+serviceAccount:
+  annotations: 
+    iam.gke.io/gcp-service-account: ${service_account_email}
+
+serviceMonitor:
+  enabled: ${enable_service_monitor}
+  namespace: "secrets"
+  additionalLabels: 
+    release: "prometheus-operator"
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: "Infra-Services"
+          operator: In
+          values:
+          - "true"
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+
+webhook:
+  create: true
+  certCheckInterval: "5m"
+  replicaCount: 1
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
+  resources: {}
+  podAnnotations:
+    co.elastic.logs/enabled: "true"
+  serviceMonitor:
+    enabled: ${enable_service_monitor}
+    additionalLabels: 
+      release: "prometheus-operator"
+    interval: 30s
+    scrapeTimeout: 25s
+  serviceAccount:
+    create: true
+    annotations: 
+      iam.gke.io/gcp-service-account: ${service_account_email}
+
+
+  
+certController:
+  create: true
+  requeueInterval: "5m"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
+  resources: {}
+  podAnnotations:
+    co.elastic.logs/enabled: "true"
+  serviceMonitor:
+    enabled: ${enable_service_monitor}
+    additionalLabels: 
+      release: "prometheus-operator"
+    interval: 30s
