@@ -1,0 +1,21 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ingress-nginx-controller-controller
+  minReplicaCount: 2
+  maxReplicaCount: 5
+  triggers:
+    - type: cpu
+      metricType: Utilization # Allowed types are 'Utilization' or 'AverageValue'
+      metadata:
+        value: "50"
+    - type: memory
+      metricType: Utilization # Allowed types are 'Utilization' or 'AverageValue'
+      metadata:
+        value: "20"

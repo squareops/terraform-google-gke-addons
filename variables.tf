@@ -1,19 +1,12 @@
 variable "cluster_name" {
   description = "Name of the Google Kubernetes Engine (GKE) cluster"
   type        = string
-  default     = "test-dev-gke-cluster"
-}
-
-variable "location" {
-  description = "Location of the GKE cluster"
-  type        = string
-  default     = "asia-south1"
 }
 
 variable "ingress_nginx_enabled" {
   description = "Enable or disable the nginx-ingress controller"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "ingress_nginx_version" {
@@ -40,6 +33,12 @@ variable "vpc_name" {
   default     = "skaf-dev-vpc"
 }
 
+variable "cert_manager_enabled" {
+  description = "Enable or disable the nginx-ingress controller"
+  type        = bool
+  default     = false
+}
+
 variable "cert_manager_version" {
   description = "Version of cert-manager to deploy"
   type        = string
@@ -49,7 +48,7 @@ variable "cert_manager_version" {
 variable "cert_manager_install_letsencrypt_http_issuers" {
   description = "Enable or disable installation of Let's Encrypt HTTP issuers for cert-manager"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cert_manager_letsencrypt_email" {
@@ -61,7 +60,7 @@ variable "cert_manager_letsencrypt_email" {
 variable "external_secret_enabled" {
   description = "Enable or disable external-secrets deployment"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "external_secrets_version" {
@@ -73,25 +72,18 @@ variable "external_secrets_version" {
 variable "environment" {
   description = "Environment in which the infrastructure is being deployed (e.g., production, staging, development)"
   type        = string
-  default     = "dev"
-}
-
-variable "enable_service_monitor" {
-  description = "Enable or disable service monitor"
-  type        = bool
-  default     = true
 }
 
 variable "service_monitor_crd_enabled" {
   description = "Enable or disable the installation of Custom Resource Definitions (CRDs) for Prometheus Service Monitor. "
-  default     = true
+  default     = false
   type        = bool
 }
 
 variable "enable_keda" {
   description = "Enable or disable keda deployment"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "keda_version" {
@@ -101,8 +93,8 @@ variable "keda_version" {
 }
 
 variable "enable_reloader" {
-  description = "Set true to enable reloader"
-  default     = true
+  description = "Enable or disable reloader"
+  default     = false
   type        = bool
 }
 

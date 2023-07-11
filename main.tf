@@ -1,11 +1,3 @@
-data "google_client_config" "default" {}
-
-data "google_container_cluster" "primary" {
-  name     = var.cluster_name
-  location = var.location
-  project  = var.project
-}
-
 module "service_monitor_crd" {
   count  = var.service_monitor_crd_enabled ? 1 : 0
   source = "./addons/service_monitor_crd"
@@ -25,8 +17,8 @@ module "ingress_nginx_controller" {
 
 # Cert-Manager
 module "cert_manager" {
-  source = "./addons/cert-manager"
-
+  source               = "./addons/cert-manager"
+  count                = var.cert_manager_enabled ? 1 : 0
   cert_manager_version = var.cert_manager_version
 }
 
@@ -43,14 +35,14 @@ resource "helm_release" "cert_manager_le_http" {
   }
 }
 
-# External-Secrets 
+# External-Secrets
 module "external_secrets" {
   source = "./addons/external-secrets"
   count  = var.external_secret_enabled ? 1 : 0
 
   project_id               = var.project
   environment              = var.environment
-  enable_service_monitor   = var.enable_service_monitor
+  enable_service_monitor   = var.service_monitor_crd_enabled
   external_secrets_version = var.external_secrets_version
 }
 
@@ -61,7 +53,7 @@ module "keda" {
   count                  = var.enable_keda ? 1 : 0
   environment            = var.environment
   project_id             = var.project
-  enable_service_monitor = var.enable_service_monitor
+  enable_service_monitor = var.service_monitor_crd_enabled
   keda_version           = var.keda_version
 }
 
@@ -71,5 +63,5 @@ module "reloader" {
   depends_on             = [module.service_monitor_crd]
   count                  = var.enable_reloader ? 1 : 0
   reloader_version       = var.reloader_version
-  enable_service_monitor = var.enable_service_monitor
+  enable_service_monitor = var.service_monitor_crd_enabled
 }

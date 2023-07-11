@@ -9,13 +9,13 @@ podAnnotations:
   co.elastic.logs/enabled: "true"
 
 serviceAccount:
-  annotations: 
+  annotations:
     iam.gke.io/gcp-service-account: ${service_account_email}
 
 serviceMonitor:
   enabled: ${enable_service_monitor}
   namespace: "secrets"
-  additionalLabels: 
+  additionalLabels:
     release: "prometheus-operator"
 
 affinity:
@@ -51,17 +51,17 @@ webhook:
     co.elastic.logs/enabled: "true"
   serviceMonitor:
     enabled: ${enable_service_monitor}
-    additionalLabels: 
+    additionalLabels:
       release: "prometheus-operator"
     interval: 30s
     scrapeTimeout: 25s
   serviceAccount:
     create: true
-    annotations: 
+    annotations:
       iam.gke.io/gcp-service-account: ${service_account_email}
 
 
-  
+
 certController:
   create: true
   requeueInterval: "5m"
@@ -79,6 +79,6 @@ certController:
     co.elastic.logs/enabled: "true"
   serviceMonitor:
     enabled: ${enable_service_monitor}
-    additionalLabels: 
+    additionalLabels:
       release: "prometheus-operator"
     interval: 30s

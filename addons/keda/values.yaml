@@ -3,7 +3,7 @@ podIdentity:
   gcp:
     enabled: false
     # -- GCP IAM Service Account Email which you would like to use for workload identity.
-    gcpIAMServiceAccount: ${gcpIAMServiceAccount} 
+    gcpIAMServiceAccount: ${gcpIAMServiceAccount}
 
 crds:
   install: true
@@ -45,11 +45,11 @@ webhooks:
 
 
 podAnnotations:
-  keda: 
+  keda:
     co.elastic.logs/enabled: "true"
-  metricsAdapter: 
+  metricsAdapter:
     co.elastic.logs/enabled: "true"
-  webhooks: 
+  webhooks:
     co.elastic.logs/enabled: "true"
 
 resources:
@@ -92,7 +92,7 @@ prometheus:
       enabled: ${enable_service_monitor}
       interval: "30s"
       scrapeTimeout: "60s"
-      additionalLabels: 
+      additionalLabels:
         release: prometheus-operator
   operator:
     enabled: ${enable_service_monitor}
