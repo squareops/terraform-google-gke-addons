@@ -69,3 +69,8 @@ module "firewall_rules" {
     },
   ]
 }
+
+output "nginx_ingress_controller_lb" {
+  value       = google_compute_address.ingress_ip_address.address
+  description = "NGINX Ingress Controller Load Balancer IP"
+}

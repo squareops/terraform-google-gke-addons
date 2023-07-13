@@ -37,7 +37,7 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_cert_manager_enabled"></a> [cert\_manager\_enabled](#input\_cert\_manager\_enabled) | Enable or disable the nginx-ingress controller | `bool` | `false` | no |
 | <a name="input_cert_manager_install_letsencrypt_http_issuers"></a> [cert\_manager\_install\_letsencrypt\_http\_issuers](#input\_cert\_manager\_install\_letsencrypt\_http\_issuers) | Enable or disable installation of Let's Encrypt HTTP issuers for cert-manager | `bool` | `false` | no |
-| <a name="input_cert_manager_letsencrypt_email"></a> [cert\_manager\_letsencrypt\_email](#input\_cert\_manager\_letsencrypt\_email) | Email address to register with Let's Encrypt for cert-manager | `string` | `"shibra@squareops.com"` | no |
+| <a name="input_cert_manager_letsencrypt_email"></a> [cert\_manager\_letsencrypt\_email](#input\_cert\_manager\_letsencrypt\_email) | Email address to register with Let's Encrypt for cert-manager | `string` | `""` | no |
 | <a name="input_cert_manager_version"></a> [cert\_manager\_version](#input\_cert\_manager\_version) | Version of cert-manager to deploy | `string` | `"1.12.2"` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the Google Kubernetes Engine (GKE) cluster | `string` | n/a | yes |
 | <a name="input_enable_keda"></a> [enable\_keda](#input\_enable\_keda) | Enable or disable keda deployment | `bool` | `false` | no |
@@ -48,13 +48,15 @@
 | <a name="input_ingress_nginx_enabled"></a> [ingress\_nginx\_enabled](#input\_ingress\_nginx\_enabled) | Enable or disable the nginx-ingress controller | `bool` | `false` | no |
 | <a name="input_ingress_nginx_version"></a> [ingress\_nginx\_version](#input\_ingress\_nginx\_version) | Version of the nginx-ingress controller | `string` | `"4.7.0"` | no |
 | <a name="input_keda_version"></a> [keda\_version](#input\_keda\_version) | Version of KEDA to deploy | `string` | `"2.10.2"` | no |
-| <a name="input_project"></a> [project](#input\_project) | ID of the Google Cloud project | `string` | `"fresh-sanctuary-389006"` | no |
+| <a name="input_project"></a> [project](#input\_project) | ID of the Google Cloud project | `string` | `""` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region where the resources will be provisioned | `string` | `"asia-south1"` | no |
 | <a name="input_reloader_version"></a> [reloader\_version](#input\_reloader\_version) | Reloader release version | `string` | `"1.0.27"` | no |
 | <a name="input_service_monitor_crd_enabled"></a> [service\_monitor\_crd\_enabled](#input\_service\_monitor\_crd\_enabled) | Enable or disable the installation of Custom Resource Definitions (CRDs) for Prometheus Service Monitor. | `bool` | `false` | no |
-| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the VPC network | `string` | `"skaf-dev-vpc"` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the VPC network | `string` | `""` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_nginx_ingress_controller_lb"></a> [nginx\_ingress\_controller\_lb](#output\_nginx\_ingress\_controller\_lb) | NGINX Ingress Controller Load Balancer IP |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

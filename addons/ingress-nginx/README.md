@@ -43,5 +43,7 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_nginx_ingress_controller_lb"></a> [nginx\_ingress\_controller\_lb](#output\_nginx\_ingress\_controller\_lb) | NGINX Ingress Controller Load Balancer IP |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -18,7 +18,7 @@ variable "ingress_nginx_version" {
 variable "project" {
   description = "ID of the Google Cloud project"
   type        = string
-  default     = "fresh-sanctuary-389006"
+  default     = ""
 }
 
 variable "region" {
@@ -30,7 +30,7 @@ variable "region" {
 variable "vpc_name" {
   description = "Name of the VPC network"
   type        = string
-  default     = "skaf-dev-vpc"
+  default     = ""
 }
 
 variable "cert_manager_enabled" {
@@ -54,7 +54,7 @@ variable "cert_manager_install_letsencrypt_http_issuers" {
 variable "cert_manager_letsencrypt_email" {
   description = "Email address to register with Let's Encrypt for cert-manager"
   type        = string
-  default     = "shibra@squareops.com"
+  default     = ""
 }
 
 variable "external_secret_enabled" {
