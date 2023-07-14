@@ -10,8 +10,8 @@ Terraform module to create GKE cluster resources for workload deployment on GCP 
 ## Usage Example
 ```hcl
 module "gke_addons" {
-  source                                        = "<path-to-module>"
-  cluster_name                                  = <cluster_name>
+  source                                        = "squareops/gke-addons/google"
+  cluster_name                                  = "cluster_name"
   location                                      = "asia-south1"
   project                                       = "project-id"
   environment                                   = "dev"

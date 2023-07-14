@@ -15,9 +15,7 @@ No requirements.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_firewall_rules"></a> [firewall\_rules](#module\_firewall\_rules) | terraform-google-modules/network/google//modules/firewall-rules | 7.1.0 |
+No modules.
 
 ## Resources
 
