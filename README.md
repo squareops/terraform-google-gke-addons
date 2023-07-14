@@ -28,6 +28,10 @@ module "gke_addons" {
 ```
 Refer [examples](https://github.com/sq-ia/terraform-google-gke-addons/blob/main/examples/complete) for more details.
 
+### Configure a Service Account
+In order to execute this module you must have a Service Account with the roles mentioned in [IAM.md](https://github.com/sq-ia/terraform-google-gke-addons/blob/main/IAM.md).
+
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
