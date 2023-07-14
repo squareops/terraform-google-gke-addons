@@ -7,10 +7,10 @@ locals {
 }
 
 module "gke_addons" {
-  source = "../"
+  source = "squareops/gke-addons/google"
 
   cluster_name                                  = local.cluster_name
-  location                                      = local.region
+  region                                        = local.region
   project                                       = local.project
   environment                                   = local.environment
   ingress_nginx_enabled                         = true

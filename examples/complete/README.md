@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_gke_addons"></a> [gke\_addons](#module\_gke\_addons) | ../ | n/a |
+| <a name="module_gke_addons"></a> [gke\_addons](#module\_gke\_addons) | squareops/gke-addons/google | n/a |
 
 ## Resources
 
