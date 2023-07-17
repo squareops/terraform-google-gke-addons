@@ -1,0 +1,114 @@
+podIdentity:
+  # provider: gcp
+  gcp:
+    enabled: false
+    # -- GCP IAM Service Account Email which you would like to use for workload identity.
+    gcpIAMServiceAccount: ${gcpIAMServiceAccount}
+
+crds:
+  install: true
+
+operator:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
+
+metricsServer:
+  replicaCount: 1
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
+
+webhooks:
+  replicaCount: 1
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
+
+
+podAnnotations:
+  keda:
+    co.elastic.logs/enabled: "true"
+  metricsAdapter:
+    co.elastic.logs/enabled: "true"
+  webhooks:
+    co.elastic.logs/enabled: "true"
+
+resources:
+  operator:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  metricServer:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  webhooks:
+    limits:
+      cpu: 50m
+      memory: 100Mi
+    requests:
+      cpu: 10m
+      memory: 10Mi
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: "Infra-Services"
+          operator: In
+          values:
+          - "true"
+
+prometheus:
+  metricServer:
+    enabled: ${enable_service_monitor}
+    serviceMonitor:
+      enabled: ${enable_service_monitor}
+      interval: "30s"
+      scrapeTimeout: "60s"
+      additionalLabels:
+        release: prometheus-operator
+  operator:
+    enabled: ${enable_service_monitor}
+    port: 8080
+    serviceMonitor:
+      enabled: ${enable_service_monitor}
+      interval: "30s"
+      scrapeTimeout: "60s"
+
+
+permissions:
+  metricServer:
+    restrict:
+      # -- Restrict Secret Access for Metrics Server
+      secret: false
+  operator:
+    restrict:
+      # -- Restrict Secret Access for KEDA operator
+      secret: false
