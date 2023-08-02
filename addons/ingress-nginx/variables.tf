@@ -1,5 +1,5 @@
-variable "cluster_name" {
-  description = "Name of the cluster"
+variable "name" {
+  description = "The suffix name for the resources being created."
   type        = string
 }
 

@@ -11,7 +11,7 @@ module "ingress_nginx_controller" {
   project               = var.project
   region                = var.region
   environment           = var.environment
-  cluster_name          = var.cluster_name
+  name                  = var.name
   vpc_name              = var.vpc_name
 }
 
