@@ -1,6 +1,6 @@
 # External IP for nginx-ingress controller
 resource "google_compute_address" "ingress_ip_address" {
-  name    = format("%s-%s-nginx-controller-ip", var.cluster_name, var.environment)
+  name    = format("%s-%s-nginx-controller-ip", var.name, var.environment)
   region  = var.region
   project = var.project
 }
@@ -42,7 +42,7 @@ data "kubernetes_service" "get_ingress_nginx_controller_svc" {
 }
 
 resource "google_compute_firewall" "default" {
-  name    = format("%s-%s-kubernetes-master-nodes-access", var.cluster_name, var.environment)
+  name    = format("%s-%s-master-nodes-access", var.name, var.environment)
   network = var.vpc_name
 
   allow {

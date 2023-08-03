@@ -9,7 +9,7 @@ locals {
 module "gke_addons" {
   source = "squareops/gke-addons/google"
 
-  cluster_name                                  = local.cluster_name
+  name                                          = local.name
   region                                        = local.region
   project                                       = local.project
   environment                                   = local.environment

@@ -31,10 +31,10 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the cluster | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment in which the infrastructure is deployed (e.g., production, staging, development) | `string` | n/a | yes |
 | <a name="input_ingress_nginx_enabled"></a> [ingress\_nginx\_enabled](#input\_ingress\_nginx\_enabled) | Enable or disable the nginx-ingress controller | `bool` | `false` | no |
 | <a name="input_ingress_nginx_version"></a> [ingress\_nginx\_version](#input\_ingress\_nginx\_version) | Version of the nginx-ingress controller | `string` | `"latest"` | no |
+| <a name="input_name"></a> [name](#input\_name) | The suffix name for the resources being created. | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | ID of the Google Cloud project | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | Region where the resources will be provisioned | `string` | n/a | yes |
 | <a name="input_service_monitor_crd_enabled"></a> [service\_monitor\_crd\_enabled](#input\_service\_monitor\_crd\_enabled) | Enable or disable the Service Monitor Custom Resource Definition (CRD) for Prometheus monitoring | `bool` | `false` | no |

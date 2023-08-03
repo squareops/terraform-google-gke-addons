@@ -11,7 +11,7 @@ This module provides a set of reusable, configurable, and scalable GCP GKE addon
 ```hcl
 module "gke_addons" {
   source                                        = "squareops/gke-addons/google"
-  cluster_name                                  = "cluster_name"
+  name                                          = "name"
   location                                      = "asia-south1"
   project                                       = "project-id"
   environment                                   = "dev"
@@ -72,7 +72,6 @@ In order to execute this module you must have a Service Account with the roles m
 | <a name="input_cert_manager_install_letsencrypt_http_issuers"></a> [cert\_manager\_install\_letsencrypt\_http\_issuers](#input\_cert\_manager\_install\_letsencrypt\_http\_issuers) | Enable or disable installation of Let's Encrypt HTTP issuers for cert-manager | `bool` | `false` | no |
 | <a name="input_cert_manager_letsencrypt_email"></a> [cert\_manager\_letsencrypt\_email](#input\_cert\_manager\_letsencrypt\_email) | Email address to register with Let's Encrypt for cert-manager | `string` | `""` | no |
 | <a name="input_cert_manager_version"></a> [cert\_manager\_version](#input\_cert\_manager\_version) | Version of cert-manager to deploy | `string` | `"1.12.2"` | no |
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the Google Kubernetes Engine (GKE) cluster | `string` | n/a | yes |
 | <a name="input_enable_keda"></a> [enable\_keda](#input\_enable\_keda) | Enable or disable keda deployment | `bool` | `false` | no |
 | <a name="input_enable_reloader"></a> [enable\_reloader](#input\_enable\_reloader) | Enable or disable reloader | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment in which the infrastructure is being deployed (e.g., production, staging, development) | `string` | n/a | yes |
@@ -81,6 +80,7 @@ In order to execute this module you must have a Service Account with the roles m
 | <a name="input_ingress_nginx_enabled"></a> [ingress\_nginx\_enabled](#input\_ingress\_nginx\_enabled) | Enable or disable the nginx-ingress controller | `bool` | `false` | no |
 | <a name="input_ingress_nginx_version"></a> [ingress\_nginx\_version](#input\_ingress\_nginx\_version) | Version of the nginx-ingress controller | `string` | `"4.7.0"` | no |
 | <a name="input_keda_version"></a> [keda\_version](#input\_keda\_version) | Version of KEDA to deploy | `string` | `"2.10.2"` | no |
+| <a name="input_name"></a> [name](#input\_name) | The suffix name for the resources being created. | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | ID of the Google Cloud project | `string` | `""` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region where the resources will be provisioned | `string` | `"asia-south1"` | no |
 | <a name="input_reloader_version"></a> [reloader\_version](#input\_reloader\_version) | Reloader release version | `string` | `"1.0.27"` | no |
