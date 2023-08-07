@@ -14,7 +14,7 @@ operator:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: "Infra-Services"
+          - key: "Addon-Services"
             operator: In
             values:
             - "true"
@@ -26,7 +26,7 @@ metricsServer:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: "Infra-Services"
+          - key: "Addon-Services"
             operator: In
             values:
             - "true"
@@ -38,7 +38,7 @@ webhooks:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: "Infra-Services"
+          - key: "Addon-Services"
             operator: In
             values:
             - "true"
@@ -80,7 +80,7 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
       - matchExpressions:
-        - key: "Infra-Services"
+        - key: "Addon-Services"
           operator: In
           values:
           - "true"

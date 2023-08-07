@@ -1,13 +1,13 @@
 installCRDs: true
 
-## Node affinity for particular node in which labels key is "Infra-Services" and value is "true"
+## Node affinity for particular node in which labels key is "Addon-Services" and value is "true"
 
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
       - matchExpressions:
-        - key: "Infra-Services"
+        - key: "Addon-Services"
           operator: In
           values:
           - "true"
@@ -18,7 +18,7 @@ webhook:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: "Infra-Services"
+          - key: "Addon-Services"
             operator: In
             values:
             - "true"
@@ -32,7 +32,7 @@ cainjector:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: "Infra-Services"
+          - key: "Addon-Services"
             operator: In
             values:
             - "true"
