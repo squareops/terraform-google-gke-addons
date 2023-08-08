@@ -5,7 +5,7 @@ reloader:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
           - matchExpressions:
-            - key: "Infra-Services"
+            - key: "Addon-Services"
               operator: In
               values:
               - "true"
