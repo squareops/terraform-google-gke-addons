@@ -41,6 +41,7 @@ module "external_secrets" {
   count  = var.external_secret_enabled ? 1 : 0
 
   project_id               = var.project
+  name                     = var.name
   environment              = var.environment
   enable_service_monitor   = var.service_monitor_crd_enabled
   external_secrets_version = var.external_secrets_version
@@ -53,6 +54,7 @@ module "keda" {
   count                  = var.enable_keda ? 1 : 0
   environment            = var.environment
   project_id             = var.project
+  name                   = var.name
   enable_service_monitor = var.service_monitor_crd_enabled
   keda_version           = var.keda_version
 }

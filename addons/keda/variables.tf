@@ -3,6 +3,11 @@ variable "project_id" {
   type        = string
 }
 
+variable "name" {
+  description = "The suffix name for the resources being created."
+  type        = string
+}
+
 variable "environment" {
   description = "Environment in which the infrastructure is being deployed (e.g., production, staging, development)"
   type        = string
