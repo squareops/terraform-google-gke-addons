@@ -1,6 +1,6 @@
 resource "google_service_account" "external_secrets" {
   project      = var.project_id
-  account_id   = format("%s-%s", var.environment, var.GCP_GSA_NAME)
+  account_id   = format("%s-%s-%s", var.environment, var.GCP_GSA_NAME, var.name)
   display_name = "Service Account for External Secrets"
 }
 
