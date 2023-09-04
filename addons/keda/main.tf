@@ -28,7 +28,7 @@ resource "helm_release" "keda" {
   values = [
     templatefile("${path.module}/values.yaml", {
       enable_service_monitor = var.enable_service_monitor,
-      gcpIAMServiceAccount   = "${var.environment}-${var.GCP_GSA_NAME}@${var.project_id}.iam.gserviceaccount.com"
+      gcpIAMServiceAccount   = "${var.environment}-${var.GCP_GSA_NAME}-${var.name}@${var.project_id}.iam.gserviceaccount.com"
     })
   ]
 }

@@ -16,7 +16,7 @@ variable "environment" {
 variable "GCP_GSA_NAME" {
   description = "Google Cloud Service Account name"
   type        = string
-  default     = "external-secrets"
+  default     = "es"
 }
 
 variable "GCP_KSA_NAME" {
