@@ -40,7 +40,7 @@ resource "helm_release" "external_secrets" {
   values = [
     templatefile("${path.module}/values.yaml", {
       enable_service_monitor = var.enable_service_monitor,
-      service_account_email  = "${var.environment}-${var.GCP_GSA_NAME}@${var.project_id}.iam.gserviceaccount.com"
+      service_account_email  = "${var.environment}-${var.GCP_GSA_NAME}-${var.name}@${var.project_id}.iam.gserviceaccount.com"
     })
   ]
 }
